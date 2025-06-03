@@ -45,6 +45,9 @@ POWERFUL_MODEL_NAME = "nvidia/llama-3.1-nemotron-ultra-253b-v1" # Retained from 
 # Let's make QueryUnderstandingTool use the FAST_MODEL_NAME as well.
 QUERY_CLASSIFICATION_MODEL_NAME = FAST_MODEL_NAME
 
+for key in ["HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy"]:
+    os.environ.pop(key, None)
+
 
 client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
